@@ -1,0 +1,15 @@
+C:\UCB\GitHub\SIS112\mi primera programa en c#\bin\Debug\net8.0\mi primera programa en c#.exe
+C:\UCB\GitHub\SIS112\mi primera programa en c#\bin\Debug\net8.0\mi primera programa en c#.deps.json
+C:\UCB\GitHub\SIS112\mi primera programa en c#\bin\Debug\net8.0\mi primera programa en c#.runtimeconfig.json
+C:\UCB\GitHub\SIS112\mi primera programa en c#\bin\Debug\net8.0\mi primera programa en c#.dll
+C:\UCB\GitHub\SIS112\mi primera programa en c#\bin\Debug\net8.0\mi primera programa en c#.pdb
+C:\UCB\GitHub\SIS112\mi primera programa en c#\obj\Debug\net8.0\mi primera programa en c#.GeneratedMSBuildEditorConfig.editorconfig
+C:\UCB\GitHub\SIS112\mi primera programa en c#\obj\Debug\net8.0\mi primera programa en c#.AssemblyInfoInputs.cache
+C:\UCB\GitHub\SIS112\mi primera programa en c#\obj\Debug\net8.0\mi primera programa en c#.AssemblyInfo.cs
+C:\UCB\GitHub\SIS112\mi primera programa en c#\obj\Debug\net8.0\mi primera programa en c#.csproj.CoreCompileInputs.cache
+C:\UCB\GitHub\SIS112\mi primera programa en c#\obj\Debug\net8.0\mi primera programa en c#.sourcelink.json
+C:\UCB\GitHub\SIS112\mi primera programa en c#\obj\Debug\net8.0\mi primera programa en c#.dll
+C:\UCB\GitHub\SIS112\mi primera programa en c#\obj\Debug\net8.0\refint\mi primera programa en c#.dll
+C:\UCB\GitHub\SIS112\mi primera programa en c#\obj\Debug\net8.0\mi primera programa en c#.pdb
+C:\UCB\GitHub\SIS112\mi primera programa en c#\obj\Debug\net8.0\mi primera programa en c#.genruntimeconfig.cache
+C:\UCB\GitHub\SIS112\mi primera programa en c#\obj\Debug\net8.0\ref\mi primera programa en c#.dll

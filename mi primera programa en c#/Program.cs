@@ -4,6 +4,31 @@ class Program
 {
     static void Main(string[] args)
     {
+        //Primer metodo, mostrar un Hola Mundo
+        HelloWorld();
+
+        //Segundo metodo, mostrar la edad ingresada por el usuario
+        Console.WriteLine("Introduzca su edad:");
+        string? edadInput = Console.ReadLine();
+        if(string.IsNullOrEmpty(edadInput)){
+            Console.WriteLine("Introduzca un valor");
+        }else{
+        int edadInteger = Int32.Parse(edadInput);
+        ObtenerEdad(edadInteger);
+        }
+
+
+    }
+
+    public static void HelloWorld(){
         Console.WriteLine("Hello, World!");
     }
+
+    public static void ObtenerEdad(int edad){
+        Console.WriteLine("Tu Edad es: " + edad);
+    }
+
+
+
+    
 }

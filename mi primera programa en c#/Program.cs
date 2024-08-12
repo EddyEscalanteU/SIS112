@@ -8,27 +8,26 @@ class Program
         HelloWorld();
 
         //Segundo metodo, mostrar la edad ingresada por el usuario
-        Console.WriteLine("Introduzca su edad:");
-        string? edadInput = Console.ReadLine();
-        if(string.IsNullOrEmpty(edadInput)){
-            Console.WriteLine("Introduzca un valor");
-        }else{
-        int edadInteger = Int32.Parse(edadInput);
-        ObtenerEdad(edadInteger);
-        }
-
-
+        ObtenerEdad();
     }
 
-    public static void HelloWorld(){
+    public static void HelloWorld()
+    {
         Console.WriteLine("Hello, World!");
     }
 
-    public static void ObtenerEdad(int edad){
-        Console.WriteLine("Tu Edad es: " + edad);
+    public static void ObtenerEdad()
+    {
+        Console.WriteLine("Introduzca su edad:");
+        string? edadInput = Console.ReadLine();
+        if (string.IsNullOrEmpty(edadInput))
+        {
+            Console.WriteLine("Introduzca un valor");
+        }
+        else
+        {
+            int edadInteger = Int32.Parse(edadInput);
+            Console.WriteLine("Tu Edad es: " + edadInteger);
+        }
     }
-
-
-
-    
 }

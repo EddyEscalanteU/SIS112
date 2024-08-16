@@ -2,27 +2,35 @@
 <html>
 <head>
 
-<script>
-    function HolaMundo() {
-        let person = prompt("Please enter your name", "Harry Potter");
-        if (person != null) {
-            alert("Hello " + person + "! How are you today?");
+    <script>
+        //Codigo JavaScript
+        function HolaMundo() {
+          alert("Hello World");
         }
-      alert("Hello World");
-    }
-</script>
+
+        // (JS) prompt == InputBox (VB)
+        function ObtenerEdad(){
+            var edad = prompt("Insertar Edad", "99");
+            alert("Hola tu edad es: " + edad);
+        }
+
+        function CalcularEdad(){
+            var anioNacimiento = prompt("Inserta tu año de nacimiento", "2000")
+            alert("Tu edad es: " + (2024 - anioNacimiento))
+        }
+    </script>
 
 
 <title>NOMBRE WEB</title>
-
 </head>
 <body>
-
 <h1>Mi primera pagina web</h1>
 <p>UCB</p>
+<button type="button" onclick="HolaMundo()">Click Me HOLA MUNDO</button>
 
-<button type="button" onclick="HolaMundo()">Click Me HOLA MUNDO!</button>
+<button type="button" onclick="ObtenerEdad()">Click Me Obtener Edad</button>
 
+<button type="button" onclick="CalcularEdad()">Click Me Calcular Edad</button>
 
 </body>
 </html>

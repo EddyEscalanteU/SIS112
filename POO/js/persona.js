@@ -18,7 +18,6 @@ class Persona {
       console.log('Estoy estudiando ' + this.carrera);
     }
   }
-<<<<<<< Updated upstream
 
   function SaludoPersona1(){
     // Crear una instancia de la clase Persona
@@ -28,12 +27,3 @@ class Persona {
     persona1.saludar();
   }
    
-=======
-  
-  // Crear una instancia de la clase Persona
-  const persona1 = new Persona("Ana", 22, "Ingeniería Industrial");
-  
-  // Llamar a los métodos
-  persona1.saludar();
-  persona1.estudiar();
->>>>>>> Stashed changes

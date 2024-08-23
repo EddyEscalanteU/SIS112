@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "introduccion", "introduccion", "{798749D2-7940-47E4-AA14-5E5123A81130}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mi primera programa en c#", "introduccion\c#\mi primera programa en c#.csproj", "{39D12166-3970-408C-BDC2-5D36500E0977}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{39D12166-3970-408C-BDC2-5D36500E0977}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39D12166-3970-408C-BDC2-5D36500E0977}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39D12166-3970-408C-BDC2-5D36500E0977}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39D12166-3970-408C-BDC2-5D36500E0977}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{39D12166-3970-408C-BDC2-5D36500E0977} = {798749D2-7940-47E4-AA14-5E5123A81130}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2E7718EF-C5FA-450F-B7A7-9870C87DF08C}
+	EndGlobalSection
+EndGlobal

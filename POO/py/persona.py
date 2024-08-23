@@ -18,6 +18,7 @@ class Persona:
   def estudiar(self):
     print(f"Estoy estudiando {self.carrera}.")
 
+  
 # Crear una instancia de la clase Persona
 persona1 = Persona("Juan", 20, "Medicina")
 persona2 = Persona("Maria", 21, "Odontologia")
@@ -25,4 +26,5 @@ persona2 = Persona("Maria", 21, "Odontologia")
 # Llamar a los métodos
 persona1.saludar()
 persona2.saludar()
+
 #persona1.estudiar()

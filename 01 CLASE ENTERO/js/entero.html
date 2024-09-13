@@ -24,18 +24,21 @@
                 <!-- Input para número entero -->
                 <div class="form-group">
                     <label for="numeroInput">Introduce un número entero:</label>
-                    <input type="number" class="form-control" id="numeroInput" placeholder="Número entero">
+                    <input type="number" class="form-control" id="numeroInput" placeholder="Número entero" value="0">
                 </div>
                 <!-- Botones para llamar a funciones -->
                 <button class="btn btn-primary btn-custom" onclick="cargarNum()">CARGAR NUM ENTERO</button>
                 <br>
                 <button class="btn btn-secondary btn-custom" onclick="mostrarNum()">MOSTRAR ENTERO</button>
                 <br>
-                
-                <button class="btn btn-success btn-custom" onclick="multiplicacion()">Multiplicación</button>
-                <button class="btn btn-danger btn-custom" onclick="division()">División</button>
 
-                <h1>RESULTADO</h1>
+                <button class="btn btn-success btn-custom" onclick="incrementarValor()">(+)</button>
+                <button class="btn btn-danger btn-custom" onclick="decrementarValor()">(-)</button>
+                <br>
+                <button class="btn btn-secondary btn-custom" onclick="esParImparNum()">ES PAR IMPAR</button>
+                <br>
+
+                <h3>RESULTADO</h3>
                 <div id="resultado" class="mt-3"></div>
             </div>
         </div>

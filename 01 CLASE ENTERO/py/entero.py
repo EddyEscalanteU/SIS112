@@ -1,9 +1,8 @@
 class Entero:
-    def __init__(self, Numero):
+    def __init__(self, Numero): # __init__ <=> constructor
         self.Num = Numero
 
     def setNum(self):
-        # Assuming you have a way to get the input value in Python
         input_value = input("Enter a number: ")
         self.Num = int(input_value)
 
@@ -55,9 +54,6 @@ class Entero:
                 break
             else:
                 print("Opción inválida. Intente nuevamente.")
-
-
-
 
 
 # Crear un objeto de la clase Entero

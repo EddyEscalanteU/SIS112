@@ -37,29 +37,70 @@ class ListaCadenas {
 }
 
 const listaCadenas = new ListaCadenas();
-listaCadenas.agregar('Hola');
-listaCadenas.agregar('Mundo');
-listaCadenas.agregar('UCB');
+listaCadenas.agregar('Hola');//4 - 0
+listaCadenas.agregar('Mundo');//5 - 1
+listaCadenas.agregar('UCB SCZ INDUSTRIAL');//3 - 2
 
 //Retornar la cadena con mayor caracteres
-
+/*
 //var = let
 //------------------------------------Hola
 var a = listaCadenas.lista[0]
 console.log(a);
 var aCant = a.length;
-console.log(aCant);
+console.log(aCant);//4
 //------------------------------------Mundo
 var b = listaCadenas.lista[1]
 console.log(b);
 var bCant = b.length
-console.log(bCant);
+console.log(bCant);//5
 //------------------------------------UCB
 var c = listaCadenas.lista[2]
 console.log(c);
 var cCant = c.length
-console.log(cCant);
+console.log(cCant);//3
+///------------------------------Buscar el mayor
+var mayor = 0;
+var posicion = -1;
+if (aCant > mayor) {
+    mayor = aCant;
+    posicion = 0;
+}
+//---
+if (bCant > mayor) {
+    mayor = bCant;
+    posicion = 1;
+}
+//---
+if (cCant > mayor) {
+    mayor = cCant
+    posicion = 2;
+}
+//---
+console.log('La mayor cantidad de caracteres tiene: ' + mayor);
+console.log('La CADENA con mayor cantidad de caracteres es: ' + listaCadenas.lista[posicion]);
+*/
 
+
+//REALIZAR EL MISMO EJERCICIO UTILIZANDO UN FOR
+// Variables para almacenar la cadena más larga y su longitud
+let mayor = 0;
+let posicion = -1;
+
+// Usar un bucle for para iterar sobre la lista de cadenas
+for (let i = 0; i < listaCadenas.lista.length; i++) {
+    const cadena = listaCadenas.lista[i];
+    const longitud = cadena.length;
+
+    if (longitud > mayor) {
+        mayor = longitud;
+        posicion = i;
+    }
+}
+
+// Mostrar los resultados
+console.log('La mayor cantidad de caracteres tiene: ' + mayor);
+console.log('La CADENA con mayor cantidad de caracteres es: ' + listaCadenas.lista[posicion]);
 
 console.log(listaCadenas.lista); // Imprime: ['Hola', 'Mundo', 'UCB']
 

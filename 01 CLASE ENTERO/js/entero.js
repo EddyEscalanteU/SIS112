@@ -42,6 +42,7 @@ class Entero {
 
 //Las funciones = button HTML
 var ClaseEntero = new Entero(0); //Se inicializo en 0
+var ClaseEnteroB = new Entero(0); //Se inicializo en 0
 
 //Crear el objeto
 function cargarNum() {

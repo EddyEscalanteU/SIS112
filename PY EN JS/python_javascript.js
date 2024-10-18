@@ -8,8 +8,8 @@ async function runPythonCode() {
   var codigoPy = `
     def my_algorithm(x):
           return x * 2
-          
-    my_algorithm(7)
+
+    my_algorithm(2024)
   `;
 
   let result = await pyodide.runPythonAsync(codigoPy);

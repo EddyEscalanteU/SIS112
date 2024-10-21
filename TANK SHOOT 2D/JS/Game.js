@@ -9,12 +9,13 @@ class Game{
         this.estadoJuego = _estadoJuego;
     }
 
-    start(){
-
+    start() {
+        this.estadoJuego = "playing";
+        // Iniciar otros elementos como tanques, puntuación, etc.
     }
 
-    reset(){
-        
+    reset() {
+        this.estadoJuego = "reset";
+        // Reiniciar las posiciones de los tanques, puntuaciones, etc.
     }
-
 }

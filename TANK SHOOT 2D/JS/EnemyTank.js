@@ -3,27 +3,33 @@ class EnemyTank{
     posY;
     direccionDisparo;
     vidas;
+    velocidad;
 
-    constructor(_posX, _posY, _direccionDisparo, _vidas){
+    constructor(_posX, _posY, _direccionDisparo, _vidas) {
         this.posX = _posX;
         this.posY = _posY;
         this.direccionDisparo = _direccionDisparo;
         this.vidas = _vidas;
+        this.velocidad = 50; // Los tanques enemigos pueden moverse más lento
     }
 
-    moveLeft(){
+    moveLeft() {
+        this.posX -= this.velocidad;
     }
 
-    moveRight(){
+    moveRight() {
+        this.posX += this.velocidad;
     }
 
-    moveUp(){
+    moveUp() {
+        this.posY -= this.velocidad;
     }
 
-    moveDown(){
+    moveDown() {
+        this.posY += this.velocidad;
     }
 
-    rotarTank(_direccionDisparo){
+    rotarTank(_direccionDisparo) {
         this.direccionDisparo = _direccionDisparo;
     }
 }

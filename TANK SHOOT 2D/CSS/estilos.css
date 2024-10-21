@@ -1,0 +1,44 @@
+html, body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #20232a;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#gameCanvas {
+    display: block;
+    border: 5px solid #61dafb;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+    background-color: #282c34;
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 2rem;
+    text-align: center;
+    color: #61dafb;
+}
+
+.game-info {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1.2rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.game-info span {
+    color: #61dafb;
+}

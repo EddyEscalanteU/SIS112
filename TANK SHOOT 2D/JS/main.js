@@ -6,6 +6,12 @@ const ctx = canvas.getContext('2d');
 function resizeCanvas() {
     canvas.width = window.innerWidth * 0.9;
     canvas.height = window.innerHeight * 0.9;
+
+    canvas.width = Math.round(canvas.width/50) * 50;
+    canvas.height = Math.round(canvas.height/50) * 50;
+
+    console.log('width', canvas.width)
+    console.log('height', canvas.height)
 }
 
 // Llamamos a la función al cargar la página
@@ -19,8 +25,12 @@ window.addEventListener('resize', resizeCanvas);
 const game = new Game(canvas.width, canvas.height, "start");
 
 // Creamos un tanque de jugador y un tanque enemigo
-const playerTank = new Tank(100, 100, 'up', 3);
-const enemyTank = new EnemyTank(500, 500, 'down', 3);
+const playerTank = new Tank(600, 300, 'up', 3, game.ancho, game.alto);
+
+const enemyTank1 = new EnemyTank(100, 100, 'down', 3, game.ancho, game.alto);
+const enemyTank2 = new EnemyTank(700, 200, 'down', 3, game.ancho, game.alto);
+const enemyTank3 = new EnemyTank(500, 400, 'down', 3, game.ancho, game.alto);
+const enemyTank4 = new EnemyTank(600, 100, 'down', 3, game.ancho, game.alto);
 
 // Dibujamos los elementos en el canvas
 function drawTank(tank) {
@@ -35,10 +45,10 @@ function drawEnemyTank(enemyTank) {
     ctx.fillRect(enemyTank.posX, enemyTank.posY, 50, 50); 
 }
 
-
 // Controles básicos para mover el tanque del jugador
 window.addEventListener('keydown', function (e) {
     switch(e.key) {
+        // Las teclas de las Flechas del teclado
         case 'ArrowLeft':
             playerTank.moveLeft();
             break;
@@ -53,25 +63,6 @@ window.addEventListener('keydown', function (e) {
             break;
     }
 });
-
-// Lógica del juego (actualización de la pantalla)
-function updateGame() {
-    // Limpiamos el canvas en cada frame
-    ctx.clearRect(0, 0, canvas.width, canvas.height); 
-
-    drawTank(playerTank); // Dibujamos el tanque del jugador
-    drawEnemyTank(enemyTank); // Dibujamos el tanque enemigo
-
-    // Refrescar los graficos
-    requestAnimationFrame(updateGame); 
-}
-
-// Iniciar el juego
-updateGame();
-
-
-/*
-
 
 // Añadir movimiento aleatorio al enemigo
 function moveEnemyTankRandomly(enemyTank) {
@@ -95,6 +86,46 @@ function moveEnemyTankRandomly(enemyTank) {
     }
 }
 
+// Hacemos que el tanque enemigo se mueva aleatoriamente cada 300ms
+setInterval(() => {
+    moveEnemyTankRandomly(enemyTank1);
+    moveEnemyTankRandomly(enemyTank2);
+}, 300);
+
+// Hacemos que el tanque enemigo se mueva aleatoriamente cada 200ms
+setInterval(() => {
+    moveEnemyTankRandomly(enemyTank3);
+     moveEnemyTankRandomly(enemyTank4);
+}, 200);
+
+
+// Lógica del juego (actualización de la pantalla)
+function updateGame() {
+    // Limpiamos el canvas en cada frame
+    ctx.clearRect(0, 0, canvas.width, canvas.height); 
+
+    drawTank(playerTank); // Dibujamos el tanque del jugador
+    drawEnemyTank(enemyTank1); // Dibujamos el tanque enemigo 1
+    drawEnemyTank(enemyTank2); // Dibujamos el tanque enemigo 2
+    drawEnemyTank(enemyTank3); // Dibujamos el tanque enemigo 3
+    drawEnemyTank(enemyTank4); // Dibujamos el tanque enemigo 4
+
+    // Refrescar los graficos
+    requestAnimationFrame(updateGame); 
+}
+
+// Iniciar el juego
+updateGame();
+
+
+/*
+
+
+
+
+
+
+
 
 function drawObstacle(obstacle) {
     let img = new Image();
@@ -104,11 +135,6 @@ function drawObstacle(obstacle) {
     };
 }
 
-
-// Hacemos que el tanque enemigo se mueva aleatoriamente cada 500ms
-setInterval(() => {
-    moveEnemyTankRandomly(enemyTank);
-}, 500);
 
 
 */

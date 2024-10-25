@@ -39,12 +39,6 @@ function drawTank(tank) {
     ctx.fillRect(tank.posX, tank.posY, 50, 50); 
 }
 
-function drawEnemyTank(enemyTank) {
-    ctx.fillStyle = 'red';
-    // Representamos el tanque enemigo como un cuadrado
-    ctx.fillRect(enemyTank.posX, enemyTank.posY, 50, 50); 
-}
-
 // Controles básicos para mover el tanque del jugador
 window.addEventListener('keydown', function (e) {
     switch(e.key) {
@@ -105,10 +99,10 @@ function updateGame() {
     ctx.clearRect(0, 0, canvas.width, canvas.height); 
 
     drawTank(playerTank); // Dibujamos el tanque del jugador
-    drawEnemyTank(enemyTank1); // Dibujamos el tanque enemigo 1
-    drawEnemyTank(enemyTank2); // Dibujamos el tanque enemigo 2
-    drawEnemyTank(enemyTank3); // Dibujamos el tanque enemigo 3
-    drawEnemyTank(enemyTank4); // Dibujamos el tanque enemigo 4
+    enemyTank1.drawEnemyTank(ctx); // Dibujamos el tanque enemigo 1
+    enemyTank2.drawEnemyTank(ctx); // Dibujamos el tanque enemigo 2
+    enemyTank3.drawEnemyTank(ctx); // Dibujamos el tanque enemigo 3
+    enemyTank4.drawEnemyTank(ctx); // Dibujamos el tanque enemigo 4
 
     // Refrescar los graficos
     requestAnimationFrame(updateGame); 

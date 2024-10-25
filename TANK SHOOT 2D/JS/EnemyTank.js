@@ -44,4 +44,10 @@ class EnemyTank{
     rotarTank(_direccionDisparo) {
         this.direccionDisparo = _direccionDisparo;
     }
+
+    drawEnemyTank(ctx) {
+        ctx.fillStyle = 'red';
+        // Representamos el tanque enemigo como un cuadrado
+        ctx.fillRect(this.posX, this.posY, 50, 50); 
+    }
 }

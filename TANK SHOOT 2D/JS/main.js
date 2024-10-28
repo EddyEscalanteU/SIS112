@@ -93,16 +93,71 @@ setInterval(() => {
 }, 200);
 
 
+const escenario = [
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [1, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 1],
+    [1, 0, 4, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1],
+    [1, 0, 2, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1],
+    [1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 1],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+];
+
+const cellSize = 50; // Tamaño de cada celda en píxeles
+
+
+function drawEscenario(ctx, escenario) {
+    for (let row = 0; row < escenario.length; row++) {
+        for (let col = 0; col < escenario[row].length; col++) {
+            const cell = escenario[row][col];
+            const x = col * cellSize;
+            const y = row * cellSize;
+
+            switch(cell) {
+                case 0: // Espacio vacío
+                    ctx.fillStyle = "#282c34";
+                    ctx.fillRect(x, y, cellSize, cellSize);
+                    break;
+                case 1: // Pared
+                    //ctx.fillStyle = "gray";
+                    //ctx.fillRect(x, y, cellSize, cellSize);
+                    var wall = new Image();
+                    wall.src = "./ASSETS/pared.webp";
+                    ctx.drawImage(wall, x, y, cellSize, cellSize);
+                    break;
+                case 2: // Obstáculo
+                    ctx.fillStyle = "brown";
+                    ctx.fillRect(x, y, cellSize, cellSize);
+                    break;
+                case 3: // Tanque del jugador
+                    playerTank.posX = x;
+                    playerTank.posY = y;
+                    drawTank(playerTank);
+                    break;
+                case 4: // Tanque enemigo 1
+                    enemyTank1.posX = x;
+                    enemyTank1.posY = y;
+                    enemyTank1.drawEnemyTank(ctx); // Dibujamos el tanque enemigo 1
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+}
+
+
 // Lógica del juego (actualización de la pantalla)
 function updateGame() {
     // Limpiamos el canvas en cada frame
     ctx.clearRect(0, 0, canvas.width, canvas.height); 
-
+/*
     drawTank(playerTank); // Dibujamos el tanque del jugador
     enemyTank1.drawEnemyTank(ctx); // Dibujamos el tanque enemigo 1
     enemyTank2.drawEnemyTank(ctx); // Dibujamos el tanque enemigo 2
     enemyTank3.drawEnemyTank(ctx); // Dibujamos el tanque enemigo 3
     enemyTank4.drawEnemyTank(ctx); // Dibujamos el tanque enemigo 4
+*/
+    drawEscenario(ctx, escenario); // Dibujamos el escenario en el canvas
 
     // Refrescar los graficos
     requestAnimationFrame(updateGame); 

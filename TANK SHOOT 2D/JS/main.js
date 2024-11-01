@@ -105,6 +105,23 @@ const escenario = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 ];
 
+const escenario2 = [
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+];
 
 function drawEscenario(ctx, escenario) {
     for (let row = 0; row < escenario.length; row++) {
@@ -112,7 +129,8 @@ function drawEscenario(ctx, escenario) {
             const cell = escenario[row][col];
             const x = col * game.anchoCelda;
             const y = row * game.altoCelda;
-
+            console.log("x", x)
+            console.log("y", y)
             switch(cell) {
                 case 0: // Espacio vacío
                     ctx.fillStyle = "black";
@@ -131,20 +149,98 @@ function drawEscenario(ctx, escenario) {
         }
     }
 }
+//13x15
+//Fondo     = 0 //Negro
+//Pared     = 1 //Cafe
+//Concreto  = 2 //Plomo
+const mapa = [
+    [1, 0, 2, 2, 2, 1, 0, 1, 0, 1, 1, 1, 1],
+    [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1],
+    [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1],
+    [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1],
+    [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1],
+    [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1],
+    [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1],
+    [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1],
+    [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1],
+    [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1],
+    [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1],
+    [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1],
+    [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1],
+    [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1],
+    [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1]
+];
 
+const mapa2 = [
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 2, 2, 2, 2, 2, 2, 2, 2, 0, 1, 1],
+    [1, 0, 2, 0, 1, 1, 0, 1, 0, 2, 1, 1, 1],
+    [1, 0, 2, 0, 1, 1, 0, 1, 0, 2, 1, 1, 1],
+    [1, 0, 2, 0, 1, 1, 0, 1, 0, 2, 1, 1, 1],
+    [1, 0, 2, 0, 1, 1, 0, 1, 0, 2, 1, 1, 1],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+];
+
+
+function DibujarCero(ctx, x, y, x1, y1){
+    ctx.fillStyle = "#2c3e50";
+    ctx.fillRect(x, y, x1, y1);
+}
+
+function DibujarUno(ctx, x, y, x1, y1){
+    ctx.fillStyle = "#63342b";
+    ctx.fillRect(x, y, x1, y1);
+}
+
+function DibujarDos(ctx, x, y, x1, y1){
+    ctx.fillStyle = "#d7dbdd";
+    ctx.fillRect(x, y, x1, y1);
+}
+
+function DibujarMapa(ctx, mapa){
+    for (let row = 0; row < mapa.length; row++) {
+        for (let col = 0; col < mapa[row].length; col++) {
+            const cell = mapa[row][col];
+            const x = col * game.anchoCelda;
+            const y = row * game.altoCelda;
+            switch (cell) {
+                case 0:
+                    DibujarCero(ctx, x, y, game.anchoCelda, game.altoCelda);
+                    break;
+                case 1:
+                    DibujarUno(ctx, x, y, game.anchoCelda, game.altoCelda);
+                    break;  
+                case 2:
+                    DibujarDos(ctx, x, y, game.anchoCelda, game.altoCelda);
+                    break;            
+                default:
+                    break;
+            }
+        }
+    }
+}
 
 // Lógica del juego (actualización de la pantalla)
 function updateGame() {
     // Limpiamos el canvas en cada frame
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    drawEscenario(ctx, escenario); // Dibujamos el escenario en el canvas
-    
-    playerTank.drawTank(ctx);
-    enemyTank1.drawEnemyTank(ctx); // Dibujamos el tanque enemigo 1
-    enemyTank2.drawEnemyTank(ctx); // Dibujamos el tanque enemigo 2
-    enemyTank3.drawEnemyTank(ctx); // Dibujamos el tanque enemigo 3
-    enemyTank4.drawEnemyTank(ctx); // Dibujamos el tanque enemigo 4
+    //drawEscenario(ctx, escenario); // Dibujamos el escenario en el canvas
+    DibujarMapa(ctx, mapa2);
+
+    //playerTank.drawTank(ctx);
+    //enemyTank1.drawEnemyTank(ctx); // Dibujamos el tanque enemigo 1
+    //enemyTank2.drawEnemyTank(ctx); // Dibujamos el tanque enemigo 2
+    //enemyTank3.drawEnemyTank(ctx); // Dibujamos el tanque enemigo 3
+    //enemyTank4.drawEnemyTank(ctx); // Dibujamos el tanque enemigo 4
 
 
     // Refrescar los graficos

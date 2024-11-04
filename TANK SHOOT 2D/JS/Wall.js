@@ -1,4 +1,4 @@
-class Obstacle{
+class Wall{
     posX;
     posY;
     nombre;

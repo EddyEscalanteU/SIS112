@@ -35,7 +35,7 @@ const enemyTank4 = new EnemyTank(600, 100, 'down', 3, game.ancho, game.alto);
 
 // Controles básicos para mover el tanque del jugador
 window.addEventListener('keydown', function (e) {
-    switch(e.key) {
+    switch (e.key) {
         // Las teclas de las Flechas del teclado
         case 'ArrowLeft':
             playerTank.moveLeft();
@@ -56,9 +56,9 @@ window.addEventListener('keydown', function (e) {
 function moveEnemyTankRandomly(enemyTank) {
     const directions = ['left', 'right', 'up', 'down']; // Posibles direcciones
     const randomDirection = directions[Math.floor(Math.random() * directions.length)];
-    
+
     // Movemos el tanque enemigo en la dirección elegida
-    switch(randomDirection) {
+    switch (randomDirection) {
         case 'left':
             enemyTank.moveLeft();
             break;
@@ -83,7 +83,7 @@ setInterval(() => {
 // Hacemos que el tanque enemigo se mueva aleatoriamente cada 200ms
 setInterval(() => {
     moveEnemyTankRandomly(enemyTank3);
-     moveEnemyTankRandomly(enemyTank4);
+    moveEnemyTankRandomly(enemyTank4);
 }, 200);
 
 
@@ -131,7 +131,7 @@ function drawEscenario(ctx, escenario) {
             const y = row * game.altoCelda;
             console.log("x", x)
             console.log("y", y)
-            switch(cell) {
+            switch (cell) {
                 case 0: // Espacio vacío
                     ctx.fillStyle = "black";
                     ctx.fillRect(x, y, game.anchoCelda, game.altoCelda);
@@ -190,43 +190,61 @@ const mapa2 = [
 ];
 
 
-function DibujarCero(ctx, x, y, x1, y1){
+function DibujarCero(ctx, x, y, x1, y1) {
     ctx.fillStyle = "#2c3e50";
     ctx.fillRect(x, y, x1, y1);
 }
 
-function DibujarUno(ctx, x, y, x1, y1){
+function DibujarUno(ctx, x, y, x1, y1) {
     ctx.fillStyle = "#63342b";
     ctx.fillRect(x, y, x1, y1);
 }
 
-function DibujarDos(ctx, x, y, x1, y1){
+function DibujarDos(ctx, x, y, x1, y1) {
     ctx.fillStyle = "#d7dbdd";
     ctx.fillRect(x, y, x1, y1);
 }
 
-function DibujarMapa(ctx, mapa){
+function DibujarMapa(ctx, mapa) {
     for (let row = 0; row < mapa.length; row++) {
         for (let col = 0; col < mapa[row].length; col++) {
             const cell = mapa[row][col];
             const x = col * game.anchoCelda;
             const y = row * game.altoCelda;
+            drawCell(ctx, cell, x, y);
+            /*
             switch (cell) {
                 case 0:
                     DibujarCero(ctx, x, y, game.anchoCelda, game.altoCelda);
                     break;
                 case 1:
                     DibujarUno(ctx, x, y, game.anchoCelda, game.altoCelda);
-                    break;  
+                    break;
                 case 2:
                     DibujarDos(ctx, x, y, game.anchoCelda, game.altoCelda);
-                    break;            
+                    break;
                 default:
                     break;
             }
+            */
         }
     }
 }
+
+// Dibujar la celda en función de su tipo
+function drawCell(ctx, cell, x, y) {
+    switch (cell) {
+        case 0: // Espacio vacío
+            ctx.fillStyle = "#2c3e50";
+            ctx.fillRect(x, y, cellSize, cellSize);
+            break;
+        case 1: // Pared
+            var pared = new Wall(x, y, "Pared", 1, "./ASSETS/pared.webp");
+            ctx.drawImage(pared.imagen, pared.x, pared.y, game.anchoCelda, game.altoCelda);
+            break;
+    }
+}
+
 
 // Lógica del juego (actualización de la pantalla)
 function updateGame() {
@@ -234,7 +252,7 @@ function updateGame() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     //drawEscenario(ctx, escenario); // Dibujamos el escenario en el canvas
-    DibujarMapa(ctx, mapa2);
+    DibujarMapa(ctx, mapa);
 
     //playerTank.drawTank(ctx);
     //enemyTank1.drawEnemyTank(ctx); // Dibujamos el tanque enemigo 1
@@ -244,7 +262,7 @@ function updateGame() {
 
 
     // Refrescar los graficos
-    requestAnimationFrame(updateGame); 
+    requestAnimationFrame(updateGame);
 }
 
 // Iniciar el juego

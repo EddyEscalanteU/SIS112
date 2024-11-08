@@ -26,7 +26,8 @@ class Matriz {
     llenarMatrizAleatorio() {
         for (let i = 0; i < this.filas; i++) {
             for (let j = 0; j < this.columnas; j++) {
-                this.matriz[i][j] = Math.floor(Math.random() * 3); // Valores entre 0, 1, 2
+                var numeroRandom = Math.random();
+                this.matriz[i][j] = Math.floor(numeroRandom * 3); // Valores entre 0, 1, 2
             }
         }
         this.dibujarMatriz();
@@ -73,7 +74,120 @@ class Matriz {
         this.dibujarMatriz();
     }
 
+    //AQUI VAN LOS EJERCICIOS--------------------------------------------
 
+    //Primera fila con 2, el resto con 0
+    llenarMatrizPrimeraFila() {
+        for (let i = 0; i < this.filas; i++) {
+            for (let j = 0; j < this.columnas; j++) {
+                if (i == 0) {
+                    this.matriz[i][j] = 2;
+                } else {
+                    this.matriz[i][j] = 0;
+                }
+            }
+        }
+        this.dibujarMatriz();
+    }
+
+    llenarMatrizPrimeraColumna() {
+        for (let i = 0; i < this.filas; i++) {
+            for (let j = 0; j < this.columnas; j++) {
+                if (j == 0) {
+                    this.matriz[i][j] = 2;
+                } else {
+                    this.matriz[i][j] = 0;
+                }
+            }
+        }
+        this.dibujarMatriz();
+    }
+
+    llenarMatrizDiagonal2() {
+        for (let i = 0; i < this.filas; i++) {
+            for (let j = 0; j < this.columnas; j++) {
+                if (i + j === this.columnas - 1) {
+                    this.matriz[i][j] = 1;
+                } else {
+                    this.matriz[i][j] = 0;
+                }
+            }
+        }
+        this.dibujarMatriz();
+    }
+
+    llenarMatrizBordesInterno() {
+        for (let i = 0; i < this.filas; i++) {
+            for (let j = 0; j < this.columnas; j++) {
+                if ((i === 1 || i === this.filas - 2) && (j >= 1 && j <= this.columnas - 2)
+                    || (j === 1 || j === this.columnas - 2) && (i >= 1 && i <= this.filas - 2)) {
+                    this.matriz[i][j] = 2;
+                } else {
+                    this.matriz[i][j] = 0;
+                }
+            }
+        }
+        this.dibujarMatriz();
+    }
+
+    llenarMatrizPiramide() {
+        const centro = Math.floor(this.columnas / 2);
+        const alturaPiramide = Math.floor(this.filas / 2);
+        for (let i = 0; i < alturaPiramide; i++) {
+            const inicio = centro - i;
+            const fin = centro + i;
+            for (let j = 0; j < this.columnas; j++) {
+                if (j >= inicio && j <= fin) {
+                    this.matriz[i][j] = 2;
+                }
+                else {
+                    this.matriz[i][j] = 0; // Resto en 0 
+                }
+            }
+        }
+        this.dibujarMatriz();
+    }
+
+    llenarMatrizCuatroBordes() {
+        const mitadCol = Math.floor(this.columnas / 2);
+        const mitadFila = Math.floor(this.filas / 2);
+
+        for (let i = 0; i < this.filas; i++) {
+            for (let j = 0; j < this.columnas; j++) {
+                if (i === 0 || i === this.filas - 1 || j === 0 || j === this.columnas - 1) {
+                    this.matriz[i][j] = 2;
+                } else {
+                    this.matriz[i][j] = 0;
+                }
+                
+                if(j == mitadCol || j == mitadCol-1){
+                    this.matriz[i][j] = 2;
+                }
+                if(i == mitadFila || i == mitadFila-1){
+                    this.matriz[i][j] = 2;
+                }
+                /*
+                                if(j == mitadCol){
+                                    this.matriz[i][j] = 2;
+                                }
+                
+                                if(j == mitadCol-1){
+                                    this.matriz[i][j] = 2;
+                                }
+                */
+            }
+        }
+        this.dibujarMatriz();
+    }
+
+    llenarMatrizSecuencia1() {
+        for (let i = 0; i < this.filas; i++) {
+            for (let j = 0; j < this.columnas; j++) {
+                this.matriz[i][j] = i % 3
+            }
+        }
+        this.dibujarMatriz();
+    }
     // Método para dibujar la matriz en el canvas
     dibujarMatriz() {
         for (let i = 0; i < this.filas; i++) {
@@ -98,7 +212,7 @@ class Matriz {
                 this.DibujarDos(x, y, this.anchoCelda, this.altoCelda);
                 break;
             default:
-                console.warn(`Valor desconocido en la matriz: ${valor}`);
+                console.warn('Valor desconocido en la matriz:' + valor);
                 break;
         }
     }
@@ -109,6 +223,12 @@ class Matriz {
         this.ctx.fillRect(x, y, ancho, alto);
         this.ctx.strokeStyle = "#ecf0f1";
         this.ctx.strokeRect(x, y, ancho, alto);
+        // Agregar el texto "0" centrado en el rectángulo
+        this.ctx.font = "bold 20px Arial"; // Ajustar la fuente y tamaño
+        this.ctx.textAlign = "center";
+        this.ctx.textBaseline = "middle";
+        this.ctx.fillStyle = "#fff"; // Color del texto (blanco)
+        this.ctx.fillText("0", x + ancho / 2, y + alto / 2);
     }
 
     DibujarUno(x, y, ancho, alto) {
@@ -116,6 +236,12 @@ class Matriz {
         this.ctx.fillRect(x, y, ancho, alto);
         this.ctx.strokeStyle = "#ecf0f1";
         this.ctx.strokeRect(x, y, ancho, alto);
+        // Agregar el texto "1" centrado en el rectángulo
+        this.ctx.font = "bold 20px Arial"; // Ajustar la fuente y tamaño
+        this.ctx.textAlign = "center";
+        this.ctx.textBaseline = "middle";
+        this.ctx.fillStyle = "#fff"; // Color del texto (blanco)
+        this.ctx.fillText("1", x + ancho / 2, y + alto / 2);
     }
 
     DibujarDos(x, y, ancho, alto) {
@@ -123,5 +249,11 @@ class Matriz {
         this.ctx.fillRect(x, y, ancho, alto);
         this.ctx.strokeStyle = "#ecf0f1";
         this.ctx.strokeRect(x, y, ancho, alto);
+        // Agregar el texto "2" centrado en el rectángulo
+        this.ctx.font = "bold 20px Arial"; // Ajustar la fuente y tamaño
+        this.ctx.textAlign = "center";
+        this.ctx.textBaseline = "middle";
+        this.ctx.fillStyle = "#fff"; // Color del texto (blanco)
+        this.ctx.fillText("2", x + ancho / 2, y + alto / 2);
     }
 }

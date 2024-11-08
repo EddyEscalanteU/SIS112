@@ -2,14 +2,14 @@ class Wall{
     posX;
     posY;
     nombre;
-    tipo;
+    nroMapa;
     imagen = new Image();
 
-    constructor(_posX, _posY, _nombre, _tipo, _imagen){
+    constructor(_posX, _posY, _ancho, _alto){
         this.posX = _posX;
         this.posY = _posY;
-        this.nombre = _nombre;
-        this.tipo = _tipo;
-        this.imagen = _imagen;
+        this.nombre = 'Pared';
+        this.nroMapa = 1;
+        this.imagen.src = "./ASSETS/pared.webp";
     }
 }

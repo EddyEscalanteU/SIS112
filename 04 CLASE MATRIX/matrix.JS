@@ -78,6 +78,7 @@ class Matriz {
 
     //Primera fila con 2, el resto con 0
     llenarMatrizPrimeraFila() {
+        this.vaciarMatriz();
         for (let i = 0; i < this.filas; i++) {
             for (let j = 0; j < this.columnas; j++) {
                 if (i == 0) {
@@ -91,6 +92,7 @@ class Matriz {
     }
 
     llenarMatrizPrimeraColumna() {
+        this.vaciarMatriz();
         for (let i = 0; i < this.filas; i++) {
             for (let j = 0; j < this.columnas; j++) {
                 if (j == 0) {
@@ -104,6 +106,7 @@ class Matriz {
     }
 
     llenarMatrizDiagonal2() {
+        this.vaciarMatriz();
         for (let i = 0; i < this.filas; i++) {
             for (let j = 0; j < this.columnas; j++) {
                 if (i + j === this.columnas - 1) {
@@ -117,6 +120,7 @@ class Matriz {
     }
 
     llenarMatrizBordesInterno() {
+        this.vaciarMatriz();
         for (let i = 0; i < this.filas; i++) {
             for (let j = 0; j < this.columnas; j++) {
                 if ((i === 1 || i === this.filas - 2) && (j >= 1 && j <= this.columnas - 2)
@@ -131,6 +135,7 @@ class Matriz {
     }
 
     llenarMatrizPiramide() {
+        this.vaciarMatriz();
         const centro = Math.floor(this.columnas / 2);
         const alturaPiramide = Math.floor(this.filas / 2);
         for (let i = 0; i < alturaPiramide; i++) {
@@ -149,6 +154,7 @@ class Matriz {
     }
 
     llenarMatrizCuatroBordes() {
+        this.vaciarMatriz();
         const mitadCol = Math.floor(this.columnas / 2);
         const mitadFila = Math.floor(this.filas / 2);
 
@@ -159,11 +165,11 @@ class Matriz {
                 } else {
                     this.matriz[i][j] = 0;
                 }
-                
-                if(j == mitadCol || j == mitadCol-1){
+
+                if (j == mitadCol || j == mitadCol - 1) {
                     this.matriz[i][j] = 2;
                 }
-                if(i == mitadFila || i == mitadFila-1){
+                if (i == mitadFila || i == mitadFila - 1) {
                     this.matriz[i][j] = 2;
                 }
                 /*
@@ -181,6 +187,7 @@ class Matriz {
     }
 
     llenarMatrizSecuencia1() {
+        this.vaciarMatriz();
         for (let i = 0; i < this.filas; i++) {
             for (let j = 0; j < this.columnas; j++) {
                 this.matriz[i][j] = i % 3
@@ -188,6 +195,64 @@ class Matriz {
         }
         this.dibujarMatriz();
     }
+
+    llenarMatrizSecuencia_0_al_7() {
+        this.vaciarMatriz();
+        var puntero = 0;
+        for (let i = 0; i < this.filas; i++) {
+            for (let j = 0; j < this.columnas; j++) {
+                this.matriz[i][j] = puntero;
+                if(puntero == 7){
+                    puntero = -1;
+                }
+                puntero = puntero + 1;
+            }
+        }
+        this.dibujarMatriz();
+    }
+
+    llenarMatrizSecuencia3() {
+        this.vaciarMatriz();
+        var puntero = 7;
+        for (let i = 0; i < this.filas; i++) {
+            for (let j = 0; j < this.columnas; j++) {
+                this.matriz[i][j] = puntero;
+                if(puntero == 0){
+                    puntero = 8;
+                }
+                puntero = puntero - 1;
+            }
+        }
+        this.dibujarMatriz();
+    }
+
+    llenarMatrizSecuencia4() {
+        this.vaciarMatriz();
+        var intercambio = "disminuir";//la condicional por defecto
+        var puntero = 7;
+        for (let i = 0; i < this.filas; i++) {
+            for (let j = 0; j < this.columnas; j++) {
+                this.matriz[i][j] = puntero;
+                //////////////////////////////////////////////// 7 al 0
+                if (intercambio == "disminuir") {
+                    if(puntero == 0){
+                        intercambio = "incrementar"
+                    }
+                    puntero = puntero - 1;                    
+                }
+                //////////////////////////////////////////////// 0 al 7
+                if (intercambio == "incrementar") {
+                    if(puntero == 7){
+                        puntero = puntero - 1;
+                        intercambio = "disminuir"
+                    }
+                    puntero = puntero + 1;
+                }
+            }
+        }
+        this.dibujarMatriz();
+    }
+    
     // Método para dibujar la matriz en el canvas
     dibujarMatriz() {
         for (let i = 0; i < this.filas; i++) {
@@ -210,6 +275,21 @@ class Matriz {
                 break;
             case 2:
                 this.DibujarDos(x, y, this.anchoCelda, this.altoCelda);
+                break;
+            case 3:
+                this.DibujarTres(x, y, this.anchoCelda, this.altoCelda);
+                break;
+            case 4:
+                this.DibujarCuatro(x, y, this.anchoCelda, this.altoCelda);
+                break;
+            case 5:
+                this.DibujarCinco(x, y, this.anchoCelda, this.altoCelda);
+                break;
+            case 6:
+                this.DibujarSeis(x, y, this.anchoCelda, this.altoCelda);
+                break;
+            case 7:
+                this.DibujarSiete(x, y, this.anchoCelda, this.altoCelda);
                 break;
             default:
                 console.warn('Valor desconocido en la matriz:' + valor);
@@ -255,5 +335,70 @@ class Matriz {
         this.ctx.textBaseline = "middle";
         this.ctx.fillStyle = "#fff"; // Color del texto (blanco)
         this.ctx.fillText("2", x + ancho / 2, y + alto / 2);
+    }
+
+    DibujarTres(x, y, ancho, alto) {
+        this.ctx.fillStyle = "#50aa69"; // Color para valor 3
+        this.ctx.fillRect(x, y, ancho, alto);
+        this.ctx.strokeStyle = "#ecf0f1";
+        this.ctx.strokeRect(x, y, ancho, alto);
+        // Agregar el texto "3" centrado en el rectángulo
+        this.ctx.font = "bold 20px Arial"; // Ajustar la fuente y tamaño
+        this.ctx.textAlign = "center";
+        this.ctx.textBaseline = "middle";
+        this.ctx.fillStyle = "#fff"; // Color del texto (blanco)
+        this.ctx.fillText("3", x + ancho / 2, y + alto / 2);
+    }
+
+    DibujarCuatro(x, y, ancho, alto) {
+        this.ctx.fillStyle = "#6ca6b2"; // Color para valor 4
+        this.ctx.fillRect(x, y, ancho, alto);
+        this.ctx.strokeStyle = "#ecf0f1";
+        this.ctx.strokeRect(x, y, ancho, alto);
+        // Agregar el texto "4" centrado en el rectángulo
+        this.ctx.font = "bold 20px Arial"; // Ajustar la fuente y tamaño
+        this.ctx.textAlign = "center";
+        this.ctx.textBaseline = "middle";
+        this.ctx.fillStyle = "#fff"; // Color del texto (blanco)
+        this.ctx.fillText("4", x + ancho / 2, y + alto / 2);
+    }
+
+    DibujarCinco(x, y, ancho, alto) {
+        this.ctx.fillStyle = "#1d3235"; // Color para valor 5
+        this.ctx.fillRect(x, y, ancho, alto);
+        this.ctx.strokeStyle = "#ecf0f1";
+        this.ctx.strokeRect(x, y, ancho, alto);
+        // Agregar el texto "5" centrado en el rectángulo
+        this.ctx.font = "bold 20px Arial"; // Ajustar la fuente y tamaño
+        this.ctx.textAlign = "center";
+        this.ctx.textBaseline = "middle";
+        this.ctx.fillStyle = "#fff"; // Color del texto (blanco)
+        this.ctx.fillText("5", x + ancho / 2, y + alto / 2);
+    }
+
+    DibujarSeis(x, y, ancho, alto) {
+        this.ctx.fillStyle = "#5c9da6"; // Color para valor 6
+        this.ctx.fillRect(x, y, ancho, alto);
+        this.ctx.strokeStyle = "#ecf0f1";
+        this.ctx.strokeRect(x, y, ancho, alto);
+        // Agregar el texto "6" centrado en el rectángulo
+        this.ctx.font = "bold 20px Arial"; // Ajustar la fuente y tamaño
+        this.ctx.textAlign = "center";
+        this.ctx.textBaseline = "middle";
+        this.ctx.fillStyle = "#fff"; // Color del texto (blanco)
+        this.ctx.fillText("6", x + ancho / 2, y + alto / 2);
+    }
+
+    DibujarSiete(x, y, ancho, alto) {
+        this.ctx.fillStyle = "#a65c78"; // Color para valor 7
+        this.ctx.fillRect(x, y, ancho, alto);
+        this.ctx.strokeStyle = "#ecf0f1";
+        this.ctx.strokeRect(x, y, ancho, alto);
+        // Agregar el texto "7" centrado en el rectángulo
+        this.ctx.font = "bold 20px Arial"; // Ajustar la fuente y tamaño
+        this.ctx.textAlign = "center";
+        this.ctx.textBaseline = "middle";
+        this.ctx.fillStyle = "#fff"; // Color del texto (blanco)
+        this.ctx.fillText("7", x + ancho / 2, y + alto / 2);
     }
 }

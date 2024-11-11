@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dibujo de Matriz en Canvas</title>
     <link rel="stylesheet" href="matrix.CSS">
 </head>
+
 <body>
     <div class="main-container">
         <canvas id="matrixCanvas" width="500" height="500"></canvas>
@@ -21,10 +23,17 @@
             <button onclick="matriz.llenarMatrizCuatroBordes()">llenarMatrizCuatroBordes</button>
             <button onclick="matriz.llenarMatrizSecuencia1()">llenarMatrizSecuencia1</button>
         </div>
+
+        <div class="button-container">
+            <button onclick="matriz.llenarMatrizSecuencia_0_al_7()">llenarMatrizSecuencia_0_al_7</button>
+            <button onclick="matriz.llenarMatrizSecuencia3()">llenarMatrizSecuencia3</button>
+            <button onclick="matriz.llenarMatrizSecuencia4()">llenarMatrizSecuencia4</button>
+        </div>
     </div>
-    
+
     <!-- Scripts de JavaScript -->
     <script src="matrix.js"></script>
     <script src="main.js"></script>
 </body>
+
 </html>
